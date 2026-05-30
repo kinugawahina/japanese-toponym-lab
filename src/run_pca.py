@@ -8,10 +8,10 @@ from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parents[1]
 
-INPUT = ROOT / "outputs" / "prefecture_kanji_frequencies.csv"
-OUTPUT_PNG = ROOT / "outputs" / "pca_prefectures.png"
-OUTPUT_CSV = ROOT / "outputs" / "pca_prefectures.csv"
-OUTPUT_LOADINGS = ROOT / "outputs" / "pca_loadings.csv"
+INPUT = ROOT / "outputs" / "prefecture_kanji_frequencies_v2.csv"
+OUTPUT_PNG = ROOT / "outputs" / "pca_prefectures_v2.png"
+OUTPUT_CSV = ROOT / "outputs" / "pca_prefectures_v2.csv"
+OUTPUT_LOADINGS = ROOT / "outputs" / "pca_loadings_v2.csv"
 
 
 def main() -> None:
@@ -48,6 +48,15 @@ def main() -> None:
     )
 
     result.to_csv(OUTPUT_CSV, index=False)
+    result.sort_values("pc1").to_csv(
+        ROOT / "outputs" / "pc1_sorted.csv",
+        index=False
+    )
+
+    result.sort_values("pc2").to_csv(
+        ROOT / "outputs" / "pc2_sorted.csv",
+        index=False
+    )
     loadings.to_csv(OUTPUT_LOADINGS, index=False)
 
     print("Explained variance ratio:")
