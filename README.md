@@ -5,7 +5,7 @@
 ## Current status
 
 - Geolonia Japanese Addresses を利用
-- 都道府県別の地名漢字頻度行列を作成
+- 都道府県別の地名要素頻度行列を作成
 - PCA による初期可視化を実装
 
 ## Scripts

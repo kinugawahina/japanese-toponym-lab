@@ -87,10 +87,10 @@ def main() -> None:
 
     (OUTPUT_DIR / "features").mkdir(parents=True, exist_ok=True)
 
-    out_path = OUTPUT_DIR / "features" / "municipality_{FEATURE_VERSION}.csv"
+    out_path = OUTPUT_DIR / "features" / "municipality_latest.csv"
     matrix.to_csv(out_path, index=False)
 
-    selected_path = OUTPUT_DIR / "features" / "selected_kanji_municipality_{FEATURE_VERSION}.csv"
+    selected_path = OUTPUT_DIR / "features" / "selected_kanji_municipality_latest.csv"
     pd.DataFrame(
         {
             "kanji": valid_kanji,
